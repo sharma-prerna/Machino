@@ -15,7 +15,7 @@ using internal datsets, provided the uploaded dataset is preprocessed. Moreover,
  
  ---
 **GIFs**
-
+![KNN](https://github.com/sharma-prerna/Machino/blob/main/django_machino.gif)
 
 ---
 **Technology Used**: Python, Django web framework
