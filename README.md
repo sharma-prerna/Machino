@@ -1,7 +1,5 @@
 # Machino
-# Machine learning Models
-**Description** : It is an interactive application to train and test basic ML models. One can analyze the performance of any model by either uploading the external dataset or
-using internal datsets, provided the uploaded dataset is preprocessed. Moreover, all the algorithms are implemented from scratch.
+**Description** : It is an interactive application to train and test basic ML models. One can analyze the performance of any model uploading the external dataset  provided the uploaded dataset is preprocessed. Each uploaded dataset will start showing up in the dataset list. Moreover, all the algorithms are implemented from scratch.
 
 ---
 **List of Models**
@@ -19,4 +17,4 @@ using internal datsets, provided the uploaded dataset is preprocessed. Moreover,
 ![KNN](https://github.com/sharma-prerna/Machino/blob/main/django_machino.gif)
 
 ---
-**Technology Used**: Python, Django web framework
+**Technology Used**: Python & Django web framework
