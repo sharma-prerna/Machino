@@ -1,0 +1,89 @@
+{% extends "machino/common.html" %}
+{% block title %}
+	<p class="text-center">K Means Clustering</p> 
+{% endblock %}
+{% block sidebar %}
+ 	{% if messages %}
+	    {% for message in messages %}
+	    <p class=" alert alert-{{ message.level_tag }} " role="alert"> {{ message.message|safe }} </p>
+	    {% endfor %}
+	{% endif %}
+	{% if train_shape is not None%}
+		<p class="small"><strong>Training data shape: </strong>{{train_shape|safe}}</p>
+	{% endif %}
+	<div class="row m-2 p-1">
+		<h6>Read Before Uploading File</h6>
+		<ul class="list small">
+			<li>File Format: CSV</li>
+			<li>Must be preprocessed</li>
+			<li>Must not contain any NAN values</li>
+			<li>Must not contain invalid values (Combination of numeric and non-numeric)</li>
+			<li>Assumption: First n-1 columns are numeric and last column (output) can be either numeric or non-numeric </li>
+	</div>
+{% endblock %}
+
+
+{% block input %}
+	<form action="" method="GET">
+		<div class="input-group  mb-3">
+			<span class="input-group-text">Datasets</span>
+			<select class="form-select" name="filelist", id="filelist">
+			{% for ds in datasets %}
+				<option value="{{ds|safe}}">{{ds|safe}}</option>
+			{% endfor %}
+			</select>
+		</div>
+		<div class="input-group  mb-3">
+			<span class="input-group-text">K</span>
+			<input type="number" class="form-control" id="k" min="1" max="20" name="k" required="True" value= {{k_value|safe}} step="1">
+		</div>
+		<ul class="lh-sm fst-italic">
+			<li>Total count of Cluster Seeds = K</li>
+			<li>Cluster Seeds Must be unique</li>
+			<li>Non positive integers (Indices of samples)</li>
+			<li>Range must not exceed the total no. of samples</li>
+			<li>Input Format: Space seperated integers</li>
+			<li>Example: For k = 3 clusters seeds = 1 2 3 or 1 7 8</li>
+		</ul>
+		<div class="input-group mb-3">
+			<span class="input-group-text">Cluster Seeds</span>
+			<input type="text" id="clust" name="clust" class="form-control" required="True">
+		</div>
+		<div class="col">
+			<button class="btn btn-primary">Train</button> 
+		</div>
+	</form>
+{% endblock %}
+
+
+{% block output %}
+	{% if test_data is not None %}
+		<div class="row overflow-scroll m-3" style="max-width: 540px; max-height: 350px;">
+			<table class="table table-light mx-1 table-striped small">
+				<thead>
+				</thead>
+				<tbody>
+					{% for i in test_data %}
+						<tr>
+							{% for val in i %}
+								<td>{{val|safe}}</td>
+							{% endfor %}
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	{% endif %}
+	{% if clusters is not None %}
+		<p class="fw-bolder">CLUSTERS: {{clusters}}<p>
+	{% endif %}
+{% endblock %}
+
+
+{% block plot %}
+	{% if plot %}
+		<figure class="figure">
+		 <img src="data:image/png;base64,{{plot|safe}}" class="figure-img img-fluid rounded" alt="...">
+		</figure>
+	{% endif %}	
+{% endblock %}

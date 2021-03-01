@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<title>Machino</title>
+</head>
+<body>
+	<div class="shadow p-3 bg-white" style="background-image: linear-gradient(to right,#ed213a,#93291e); color:white; font-weight: bold;font-size: 25px;">
+		<p class="text-center">Machine Learning Models</p> 
+	</div>
+	<div class="container-lg">
+		<div class="row py-5 px-9 mx-9">
+			<div class ="col px-5">
+			  <div class="card p-3 shadow-lg p-3 mb-5">
+				<h6 class="card-title text-center">Supervised Learning</h6>
+    			<small class="card-text">supervised learning is a learning in which we teach or train the machine using data which is well labeled that means some data is already tagged with the correct answer. After that, the machine is provided with a new set of examples(data) so that supervised learning algorithm analyses the training data(set of training examples) and produces a correct outcome from labeled data. </small>
+				 <div class="btn-group m-2">
+				  <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Supervised Learning Models
+				  </button>
+				  <ul class="dropdown-menu">
+				    <li><a class="dropdown-item" href='{% url "deep" %}'>Deep Neural network</a></li>
+				    <li><a class="dropdown-item" href='{% url "knn" %}'>K Nearest Neighbour</a></li>
+				    <li><a class="dropdown-item" href='{% url "lin" %}'>Linear Regression</a></li>
+				    <li><a class="dropdown-item" href='{% url "log" %}'>Logistic Regression</a></li>
+				    <li><a class="dropdown-item" href='{% url "naive" %}'>Naive Bayes Classifier</a></li>
+				  </ul>
+				</div>
+			  </div>
+			</div>
+			<div class ="col px-5">
+			  <div class="card p-3 shadow-lg p-3 mb-5">
+				<h6 class="card-title text-center">Unsupervised Learning</h6>
+    			<small class="card-text">Unsupervised learning is the training of machine using information that is neither classified nor labeled and allowing the algorithm to act on that information without guidance. Unlike supervised learning, no teacher is provided that means no training will be given to the machine. Therefore machine is restricted to find the hidden structure in unlabeled data by our-self. </small>
+				 <div class="btn-group m-2">
+				  <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+				   Unsupervised Learning
+				  </button>
+				  <ul class="dropdown-menu">
+				    <li><a class="dropdown-item" href="{% url 'kmc' %}">K Means Clustering</a></li>
+				  </ul>
+				</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+ 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>
